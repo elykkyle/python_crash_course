@@ -1,4 +1,8 @@
 {
   "python.linting.enabled": true,
-  "cSpell.ignoreWords": ["blitme"]
+  "cSpell.ignoreWords": ["blitme"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none"
 }
