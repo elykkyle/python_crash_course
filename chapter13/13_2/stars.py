@@ -1,5 +1,6 @@
 import sys
 import pygame
+from random import randint
 from star import Star
 
 
@@ -30,17 +31,18 @@ class StarGrid:
         while current_y < (self.screen_height - star_height * 2):
             while current_x < (self.screen_width - star_width):
                 self._create_star(current_x, current_y)
-                current_x += star_width
+                current_x += star_width * 1.5
 
             current_x = star_width
-            current_y += star_height
+            current_y += star_height * 1.5
 
     def _create_star(self, x_position, y_position):
+        rand = randint(-30, 30)
         new_star = Star(self)
-        new_star.x = x_position
-        new_star.y = y_position
-        new_star.rect.x = x_position
-        new_star.rect.y = y_position
+        new_star.x = x_position + rand
+        new_star.y = y_position + rand
+        new_star.rect.x = x_position + rand
+        new_star.rect.y = y_position + rand
         self.stars.add(new_star)
 
         # def _create_star(self):
