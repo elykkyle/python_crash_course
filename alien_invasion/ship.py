@@ -11,7 +11,7 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect.
-        self.image = pygame.image.load('images/ship001.png')
+        self.image = pygame.image.load("images/ship001.png")
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
@@ -33,6 +33,11 @@ class Ship:
 
         # Update rect object from self.x
         self.rect.x = self.x
+
+    def center_ship(self):
+        """Center the ship on the screen."""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
 
     def blitme(self):
         """Draw the ship at its current location."""
