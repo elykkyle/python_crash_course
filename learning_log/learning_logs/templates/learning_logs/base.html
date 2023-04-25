@@ -9,9 +9,23 @@
   <body>
     <p>
       <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
-      <a href="{% url 'learning_logs:topics' %}">Topics</a>
+      <a href="{% url 'learning_logs:topics' %}">Topics</a> -
+      <!-- prettier-ignore -->
+      {% if user.is_authenticated %}
+      <span>Hello, {{ user.username }}. </span>
+      {% else %}
+      <a href="{% url 'accounts:login' %}">Log in</a>
+      {% endif %}
     </p>
 
     {% block content %}{% endblock content %}
+    <!-- prettier-ignore -->
+    {% if user.is_authenticated %}
+    <hr />
+    <form action="{% url 'accounts:logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Log out</button>
+    </form>
+    {% endif %}
   </body>
 </html>
