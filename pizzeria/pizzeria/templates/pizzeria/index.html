@@ -1,3 +1,10 @@
+{% extends 'pizzeria/base.html' %} {% block content %}
+
+<a href="{% url 'pizzeria:index' %}">Home</a> -
+<a href="{% url 'pizzeria:pizzas' %}">Pizzas</a> -
+
 <h1>Pizzeria!!!</h1>
 
 <p>home page for pizzeria</p>
+
+{% endblock content %}
