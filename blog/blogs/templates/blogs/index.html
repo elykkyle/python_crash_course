@@ -1,0 +1,16 @@
+{% extends 'blogs/base.html' %} {% block content %}
+<h1>INDEX!!!!@#Q$E</h1>
+
+<ul>
+  {% for post in posts %}
+  <li>
+    <h3>{{post.title}}</h3>
+    <p>{{ post.date_added|date:'M d, Y g:i A' }}</p>
+    <p>{{ post.text|linebreaks }}</p>
+    <a href="{% url 'blogs:edit_post' post.id %}">Edit post</a>
+  </li>
+  {% empty %}
+  <li>No posts here.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}
