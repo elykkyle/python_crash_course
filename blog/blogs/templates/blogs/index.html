@@ -1,5 +1,15 @@
 {% extends 'blogs/base.html' %} {% block content %}
 <h1>INDEX!!!!@#Q$E</h1>
+{% if user.is_authenticated %}
+<p>Hello, {{user.username}}</p>
+<form action="{% url 'accounts:logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Log out</button>
+</form>
+{% else %}
+<a href="{% url 'accounts:register' %}">Register</a>
+<a href="{% url 'accounts:login' %}">Login</a>
+{% endif %}
 
 <ul>
   {% for post in posts %}
