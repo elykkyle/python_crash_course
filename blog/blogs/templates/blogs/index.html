@@ -2,6 +2,7 @@
 <h1>INDEX!!!!@#Q$E</h1>
 {% if user.is_authenticated %}
 <p>Hello, {{user.username}}</p>
+<p><a href="{% url 'blogs:new_post' %}">New Post</a></p>
 <form action="{% url 'accounts:logout' %}" method="post">
   {% csrf_token %}
   <button type="submit">Log out</button>
